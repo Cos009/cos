@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Express My Love</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #f9f9f8, #f9f9f8);
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      padding: 50px;
+      overflow: hidden;
+    }
+    .teddy {
+      width: 220px;
+      margin: 20px auto;
+      animation: popIn 1s ease-in-out;
+    }
+    .question-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+    
+      .buttons {
+  margin-top: 20px;
+      }
+
+    
+    .btn {
+      padding: 15px 30px;
+      font-size: 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+    .yes {
+      background: linear-gradient(135deg, #ff69b4, #ff1493);
+      color: white;
+    }
+    .yes:hover {
+      background: linear-gradient(135deg, #c40c6e, #ff69b4);
+      transform: scale(1.05);
+    }
+    .no {
+      background: #d3d3d3;
+      color: #333;
+      position: absolute;
+    }
+    .no:hover{
+        background: linear-gradient(135deg, #000000,#4d4a4a);
+      transform: scale(1.05);
+    }
+    #final {
+      display: none;
+      animation: fadeIn 1s ease-in-out;
+    }
+    h1 {
+      font-size: 2.2rem;
+      color: #ff1493;
+    }
+    @keyframes popIn {
+      from {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="initial">
+    <img class="teddy" src="TEDDY" alt="Teddy asking">
+    <h1>Will you go on a date with me?</h1>
+    <div class="buttons">
+      <button class="btn yes" onclick="sayYes()">Yes</button>
+      <button class="btn no" id="noBtn" onclick="moveNo()">No</button>
+    </div>
+  </div>
+
+  <div id="final">
+    <img class="teddy" src="love" alt="Teddy with flowers">
+    <h1>I love you! ❤️</h1>
+  </div>
+
+  <script>
+    function moveNo() {
+      const btn = document.getElementById('noBtn');
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
+      btn.style.left = `${x}px`;
+      btn.style.top = `${y}px`;
+    }
+
+    function sayYes() {
+      document.getElementById('initial').style.display = 'none';
+      document.getElementById('final').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
+
